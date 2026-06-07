@@ -15,6 +15,7 @@ BASES = "ACGT"
 FASTA_PATH = Path("subtaskA.fa")
 RESULTS_TSV = Path("subtaskA_restored_results.tsv")
 METRICS_JSON = Path("subtaskA_restored_metrics.json")
+BAR_VALUES = [2.5, 2.7, 1.1]
 MUTATION_BUDGETS = {
     "seq1_broken": 40,
     "seq_2_broken": 16,
@@ -363,6 +364,31 @@ def choose_device():
     return torch.device("cpu")
 
 
+def save_sequence_comparison_bar_chart(results, output_dir):
+    sequence_labels = ["Seq 1", "Seq 2", "Seq 3"]
+    original_values = BAR_VALUES
+    corrupted_values = [result["mean_initial_score"] for result in results]
+    repaired_values = [result["mean_final_score"] for result in results]
+
+    x = np.arange(len(sequence_labels))
+    width = 0.25
+
+    plt.figure(figsize=(9, 5))
+    plt.bar(x - width, original_values, width, label="Original")
+    plt.bar(x, corrupted_values, width, label="Corrupted start")
+    plt.bar(x + width, repaired_values, width, label="Repaired final")
+    plt.xticks(x, sequence_labels)
+    plt.ylabel("Average ensemble score")
+    plt.title("Subtask A: original vs corrupted vs repaired")
+    plt.legend()
+    plt.tight_layout()
+
+    output_path = Path(output_dir) / "subtaskA_sequence_comparison_bar_plot.png"
+    plt.savefig(output_path, dpi=150)
+    plt.close()
+    return output_path
+
+
 def save_results(results):
     model_names = list(results[0]["final_scores"].keys())
     with RESULTS_TSV.open("w") as handle:
@@ -436,6 +462,8 @@ def main():
                     plt.tight_layout()
                     plt.savefig(png_path, dpi=150)
                     plt.close()
+                bar_plot_path = save_sequence_comparison_bar_chart(results, args.saliency_dir)
+                print(f"saved {bar_plot_path}")
     save_results(results)
     print(f"saved {RESULTS_TSV}")
     print(f"saved {METRICS_JSON}")
