@@ -6,6 +6,9 @@ from pathlib import Path
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import os
+import numpy as np
+import matplotlib.pyplot as plt
 
 
 BASES = "ACGT"
@@ -140,6 +143,34 @@ class ModelScorer:
     def ratio_tensor(self, x):
         return self.ratio_fn(self.model(x))
 
+    def saliency(self, sequence, aggregate="abs_sum"):
+        x = self.encode(sequence)
+        x.requires_grad_(True)
+        self.model.zero_grad(set_to_none=True)
+        out = self.ratio_tensor(x)
+        out.backward()
+        grad = x.grad[0].detach().cpu().numpy()  # shape (4, L)
+        # The scale has the form (4, L), where 4 represents the modes (A, T, C, G or A, C, G, T)
+        if aggregate == "abs_sum":
+            # We compute the gradient only for the nucleotide that is physically present in the sequence (Gradient × Input)
+            # x[0] has the shape (4, L) and contains 1.0 where the base is specified, and 0.0 elsewhere
+            input_tensor = x[0].detach().cpu().numpy()
+            sal = np.sum(grad * input_tensor, axis=0)  # Positive and negative values remain
+            
+        elif aggregate == "actual_base":
+            sal = np.zeros(grad.shape[1], dtype=float)
+            for pos, base in enumerate(sequence):
+                ch = self.base_to_channel[base]
+                sal[pos] = grad[ch, pos]
+        else:
+            input_tensor = x[0].detach().cpu().numpy()
+            sal = np.sum(grad * input_tensor, axis=0)
+
+        max_abs = np.max(np.abs(sal))
+        if max_abs > 0:
+            sal = sal / max_abs
+        return sal
+    
     def predict(self, sequence):
         with torch.no_grad():
             return float(self.ratio_tensor(self.encode(sequence)).item())
@@ -357,6 +388,7 @@ def save_results(results):
 def parse_args():
     parser = argparse.ArgumentParser(description="Restore Subtask A sequences with gradient-guided voting.")
     parser.add_argument("--exclude-jakubk", action="store_true", help="Do not use jakubk model for mutation voting.")
+    parser.add_argument("--saliency-dir", default=None, help="Directory to save saliency maps (PNG and TSV) for each sequence and model.")
     return parser.parse_args()
 
 
@@ -375,6 +407,35 @@ def main():
         restore_sequence(header, sequence, MUTATION_BUDGETS[header], voting_models, scoring_models)
         for header, sequence in records
     ]
+
+    # generate saliency maps if requested
+    if args.saliency_dir is not None:
+        os.makedirs(args.saliency_dir, exist_ok=True)
+        for res in results:
+            header = res.get("id")
+            initial_seq = res.get("initial_sequence")
+            final_seq = res.get("final_sequence")
+            safe_header = header.replace("/", "_")
+            for model in scoring_models:
+                for label, seq in (("initial", initial_seq), ("final", final_seq)):
+                    sal = model.saliency(seq)
+                    tsv_path = os.path.join(args.saliency_dir, f"{safe_header}_{model.name}_{label}_saliency.tsv")
+                    png_path = os.path.join(args.saliency_dir, f"{safe_header}_{model.name}_{label}_saliency.png")
+                    # save TSV
+                    with open(tsv_path, "w") as fh:
+                        fh.write("position\tsaliency\n")
+                        for i, v in enumerate(sal, start=1):
+                            fh.write(f"{i}\t{v:.6f}\n")
+                    # save PNG heatmap
+                    plt.figure(figsize=(max(6, len(sal)/50), 2))
+                    plt.imshow(sal[np.newaxis, :], aspect="auto", cmap="seismic", vmin=-1, vmax=1)
+                    plt.colorbar(label="normalized saliency")
+                    plt.yticks([])
+                    plt.xlabel("position")
+                    plt.title(f"{safe_header} - {model.name} ({label})")
+                    plt.tight_layout()
+                    plt.savefig(png_path, dpi=150)
+                    plt.close()
     save_results(results)
     print(f"saved {RESULTS_TSV}")
     print(f"saved {METRICS_JSON}")
