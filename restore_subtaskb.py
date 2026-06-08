@@ -143,7 +143,7 @@ def main():
     scoring_models = load_models(device)
     voting_models = [
         model for model in scoring_models
-        if not (args.exclude_jakubk and model.name == "jakubk")
+        if not (args.exclude_jakubk and model.name.startswith("jakubk"))
     ]
     print("voting models:", ", ".join(model.name for model in voting_models))
     results = [

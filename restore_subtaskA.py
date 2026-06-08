@@ -6,6 +6,12 @@ from pathlib import Path
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from jakubk_2.jk_inference import (
+    BASE_TO_CHANNEL as JK2_BASE_TO_CHANNEL,
+    DeepSTARRRegulatoryModel,
+    fit_sequence_length as jk2_fit_sequence_length,
+    one_hot_sequence as jk2_one_hot_sequence,
+)
 
 
 BASES = "ACGT"
@@ -95,34 +101,6 @@ class DeepSTARR_MultiTask(nn.Module):
         return self.out_is_active(x), self.out_rna_dna_ratio(x)
 
 
-class JakubKModel(nn.Module):
-    def __init__(self, dropout):
-        super().__init__()
-        self.features = nn.Sequential(
-            nn.Conv1d(4, 32, kernel_size=11, padding=5),
-            nn.ReLU(),
-            nn.MaxPool1d(2),
-            nn.Dropout(dropout),
-            nn.Conv1d(32, 64, kernel_size=7, padding=3),
-            nn.ReLU(),
-            nn.MaxPool1d(2),
-            nn.Dropout(dropout),
-            nn.AdaptiveMaxPool1d(1),
-        )
-        self.shared_head = nn.Sequential(
-            nn.Linear(64, 32),
-            nn.ReLU(),
-            nn.Dropout(dropout),
-        )
-        self.ratio_head = nn.Linear(32, 1)
-        self.active_head = nn.Linear(32, 1)
-
-    def forward(self, x):
-        x = self.features(x).squeeze(-1)
-        x = self.shared_head(x)
-        return self.ratio_head(x).squeeze(-1), self.active_head(x).squeeze(-1)
-
-
 class ModelScorer:
     def __init__(self, name, model, base_to_channel, ratio_fn, device):
         self.name = name
@@ -164,6 +142,49 @@ class ModelScorer:
         return ranked
 
 
+class JakubK2Scorer(ModelScorer):
+    def __init__(self, model, expected_length, y_mean, y_std, device):
+        super().__init__("jakubk_2", model, JK2_BASE_TO_CHANNEL, None, device)
+        self.expected_length = expected_length
+        self.y_mean = y_mean
+        self.y_std = y_std
+
+    def encode(self, sequence):
+        x, _ = jk2_one_hot_sequence(sequence, self.expected_length, self.device)
+        return x
+
+    def model_start(self, sequence):
+        if len(sequence) > self.expected_length:
+            return (len(sequence) - self.expected_length) // 2
+        return 0
+
+    def ratio_tensor(self, x):
+        ratio_z, _ = self.model(x)
+        return (ratio_z.squeeze() * self.y_std) + self.y_mean
+
+    def ranked_mutations(self, sequence, locked_positions):
+        x = self.encode(sequence)
+        x.requires_grad_(True)
+        self.model.zero_grad(set_to_none=True)
+        self.ratio_tensor(x).backward()
+        grad = x.grad[0].detach().cpu()
+        ranked = []
+        model_sequence = jk2_fit_sequence_length(sequence, self.expected_length)
+        start = self.model_start(sequence)
+        for model_pos, old_base in enumerate(model_sequence):
+            full_pos = start + model_pos
+            if old_base not in JK2_BASE_TO_CHANNEL or full_pos in locked_positions:
+                continue
+            old_channel = JK2_BASE_TO_CHANNEL[old_base]
+            for new_base in BASES:
+                if new_base != old_base:
+                    new_channel = JK2_BASE_TO_CHANNEL[new_base]
+                    delta = grad[new_channel, model_pos] - grad[old_channel, model_pos]
+                    ranked.append((float(delta), full_pos, old_base, new_base))
+        ranked.sort(reverse=True)
+        return ranked
+
+
 def read_fasta(path):
     records = []
     header = None
@@ -186,14 +207,6 @@ def mutate(sequence, pos, new_base):
     return sequence[:pos] + new_base + sequence[pos + 1 :]
 
 
-def transformed_jakubk_ratio(raw_ratio, checkpoint):
-    args = checkpoint.get("args", {})
-    value = raw_ratio * checkpoint.get("target_std", 1.0) + checkpoint.get("target_mean", 0.0)
-    if args.get("target_transform", "none") == "log2":
-        return torch.pow(torch.tensor(2.0, device=value.device), value) - args.get("log_eps", 1e-6)
-    return value
-
-
 def load_models(device):
     julias = JuliaSModel()
     julias.load_state_dict(torch.load("julias/best_model.pth", map_location=device, weights_only=False))
@@ -201,20 +214,15 @@ def load_models(device):
     __main__.DeepSTARR_MultiTask = DeepSTARR_MultiTask
     juliak = torch.load("juliak/best_model.pth", map_location=device, weights_only=False)
 
-    jakubk_ckpt = torch.load("jakubk/rna_dna_ratio_model.pt", map_location=device, weights_only=False)
-    jakubk = JakubKModel(jakubk_ckpt.get("args", {}).get("dropout", 0.2))
+    jakubk_ckpt = torch.load("jakubk_2/rna_dna_ratio_model.pt", map_location=device, weights_only=False)
+    jakubk_length = int(jakubk_ckpt["sequence_length"])
+    jakubk = DeepSTARRRegulatoryModel(jakubk_length).to(device)
     jakubk.load_state_dict(jakubk_ckpt["model_state_dict"])
 
     return [
         ModelScorer("julias", julias, {"A": 0, "T": 1, "C": 2, "G": 3}, lambda out: out[1], device),
         ModelScorer("juliak", juliak, {"A": 0, "C": 1, "G": 2, "T": 3}, lambda out: out[1].squeeze(), device),
-        ModelScorer(
-            "jakubk",
-            jakubk,
-            {"A": 0, "C": 1, "G": 2, "T": 3},
-            lambda out: transformed_jakubk_ratio(out[0], jakubk_ckpt).squeeze(),
-            device,
-        ),
+        JakubK2Scorer(jakubk, jakubk_length, float(jakubk_ckpt["y_mean"]), float(jakubk_ckpt["y_std"]), device),
     ]
 
 
@@ -367,7 +375,7 @@ def main():
     scoring_models = load_models(device)
     voting_models = [
         model for model in scoring_models
-        if not (args.exclude_jakubk and model.name == "jakubk")
+        if not (args.exclude_jakubk and model.name.startswith("jakubk"))
     ]
     print("voting models:", ", ".join(model.name for model in voting_models))
     records = read_fasta(FASTA_PATH)
