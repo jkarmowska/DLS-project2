@@ -2,6 +2,8 @@ import argparse
 import __main__
 import json
 from pathlib import Path
+import os
+import numpy as np
 
 import torch
 import torch.nn as nn
@@ -118,6 +120,22 @@ class ModelScorer:
     def ratio_tensor(self, x):
         return self.ratio_fn(self.model(x))
 
+    def saliency(self, sequence):
+        x = self.encode(sequence)
+        x.requires_grad_(True)
+        self.model.zero_grad(set_to_none=True)
+        out = self.ratio_tensor(x)
+        out.backward()
+        grad = x.grad[0].detach().cpu().numpy()  # shape (4, L)
+        
+        input_tensor = x[0].detach().cpu().numpy()
+        sal = np.sum(grad * input_tensor, axis=0)  # Keep sign (+/-)
+        
+        max_abs = np.max(np.abs(sal))
+        if max_abs > 0:
+            sal = sal / max_abs
+        return sal
+
     def predict(self, sequence):
         with torch.no_grad():
             return float(self.ratio_tensor(self.encode(sequence)).item())
@@ -161,6 +179,22 @@ class JakubKScorer(ModelScorer):
     def ratio_tensor(self, x):
         ratio_z, _ = self.model(x)
         return (ratio_z.squeeze() * self.y_std) + self.y_mean
+
+    def saliency(self, sequence):
+        x = self.encode(sequence)
+        x.requires_grad_(True)
+        self.model.zero_grad(set_to_none=True)
+        out = self.ratio_tensor(x)
+        out.backward()
+        grad = x.grad[0].detach().cpu().numpy()  # shape (4, L_model)
+        
+        input_tensor = x[0].detach().cpu().numpy()
+        sal = np.sum(grad * input_tensor, axis=0)
+        
+        max_abs = np.max(np.abs(sal))
+        if max_abs > 0:
+            sal = sal / max_abs
+        return sal
 
     def ranked_mutations(self, sequence, locked_positions):
         x = self.encode(sequence)
@@ -365,6 +399,7 @@ def save_results(results):
 def parse_args():
     parser = argparse.ArgumentParser(description="Restore Subtask A sequences with gradient-guided voting.")
     parser.add_argument("--exclude-jakubk", action="store_true", help="Do not use jakubk model for mutation voting.")
+    parser.add_argument("--saliency-dir", default="saliency_maps", help="Directory to save raw saliency TSV data.")
     return parser.parse_args()
 
 
@@ -383,6 +418,23 @@ def main():
         restore_sequence(header, sequence, MUTATION_BUDGETS[header], voting_models, scoring_models)
         for header, sequence in records
     ]
+    
+    if args.saliency_dir is not None:
+        os.makedirs(args.saliency_dir, exist_ok=True)
+        for res in results:
+            header = res.get("id")
+            initial_seq = res.get("initial_sequence")
+            final_seq = res.get("final_sequence")
+            safe_header = header.replace("/", "_")
+            for model in scoring_models:
+                for label, seq in (("initial", initial_seq), ("final", final_seq)):
+                    sal = model.saliency(seq)
+                    tsv_path = os.path.join(args.saliency_dir, f"{safe_header}_{model.name}_{label}_saliency.tsv")
+                    with open(tsv_path, "w") as fh:
+                        fh.write("position\tsaliency\n")
+                        for i, v in enumerate(sal, start=1):
+                            fh.write(f"{i}\t{v:.6f}\n")
+                            
     save_results(results)
     print(f"saved {RESULTS_TSV}")
     print(f"saved {METRICS_JSON}")
