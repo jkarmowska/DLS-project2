@@ -3,12 +3,12 @@
   "model_names": [
     "julias",
     "juliak",
-    "jakubk_2"
+    "jakubk"
   ],
   "voting_model_names": [
     "julias",
     "juliak",
-    "jakubk_2"
+    "jakubk"
   ],
   "sequences": [
     {
@@ -63,42 +63,42 @@
       "voting_model_names": [
         "julias",
         "juliak",
-        "jakubk_2"
+        "jakubk"
       ],
       "scoring_model_names": [
         "julias",
         "juliak",
-        "jakubk_2"
+        "jakubk"
       ],
       "initial_scores": {
         "julias": 0.07108449190855026,
         "juliak": 0.46524491906166077,
-        "jakubk_2": 1.1318107843399048
+        "jakubk": 1.1318107843399048
       },
       "final_scores": {
         "julias": 1.859971046447754,
         "juliak": 3.7860798835754395,
-        "jakubk_2": 6.134394645690918
+        "jakubk": 6.134394645690918
       },
       "improvements": {
         "julias": 1.7888865545392036,
         "juliak": 3.3208349645137787,
-        "jakubk_2": 5.002583861351013
+        "jakubk": 5.002583861351013
       },
       "voting_initial_scores": {
         "julias": 0.07108449190855026,
         "juliak": 0.46524491906166077,
-        "jakubk_2": 1.1318107843399048
+        "jakubk": 1.1318107843399048
       },
       "voting_final_scores": {
         "julias": 1.859971046447754,
         "juliak": 3.7860798835754395,
-        "jakubk_2": 6.134394645690918
+        "jakubk": 6.134394645690918
       },
       "voting_improvements": {
         "julias": 1.7888865545392036,
         "juliak": 3.3208349645137787,
-        "jakubk_2": 5.002583861351013
+        "jakubk": 5.002583861351013
       },
       "mean_initial_score": 0.5560467317700386,
       "mean_final_score": 3.9268151919047036,
@@ -118,18 +118,18 @@
           "scores": {
             "julias": 0.38032346963882446,
             "juliak": 0.5824970006942749,
-            "jakubk_2": 1.7226786613464355
+            "jakubk": 1.7226786613464355
           },
           "improvements": {
             "julias": 0.3092389777302742,
             "juliak": 0.11725208163261414,
-            "jakubk_2": 0.5908678770065308
+            "jakubk": 0.5908678770065308
           },
           "gradient_rank": 1,
           "step": 1
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 197,
           "old_base": "G",
           "new_base": "T",
@@ -139,12 +139,12 @@
           "scores": {
             "julias": 0.5878629088401794,
             "juliak": 0.8622405529022217,
-            "jakubk_2": 2.056941032409668
+            "jakubk": 2.056941032409668
           },
           "improvements": {
             "julias": 0.20753943920135498,
             "juliak": 0.2797435522079468,
-            "jakubk_2": 0.3342623710632324
+            "jakubk": 0.3342623710632324
           },
           "gradient_rank": 1,
           "step": 2
@@ -160,12 +160,12 @@
           "scores": {
             "julias": 0.7754725813865662,
             "juliak": 1.0668011903762817,
-            "jakubk_2": 2.146503210067749
+            "jakubk": 2.146503210067749
           },
           "improvements": {
             "julias": 0.18760967254638672,
             "juliak": 0.20456063747406006,
-            "jakubk_2": 0.08956217765808105
+            "jakubk": 0.08956217765808105
           },
           "gradient_rank": 1,
           "step": 3
@@ -181,12 +181,12 @@
           "scores": {
             "julias": 0.8554186224937439,
             "juliak": 1.2880440950393677,
-            "jakubk_2": 2.0900933742523193
+            "jakubk": 2.0900933742523193
           },
           "improvements": {
             "julias": 0.07994604110717773,
             "juliak": 0.22124290466308594,
-            "jakubk_2": -0.05640983581542969
+            "jakubk": -0.05640983581542969
           },
           "gradient_rank": 1,
           "step": 4
@@ -202,12 +202,12 @@
           "scores": {
             "julias": 0.8645049929618835,
             "juliak": 1.2938600778579712,
-            "jakubk_2": 2.155559778213501
+            "jakubk": 2.155559778213501
           },
           "improvements": {
             "julias": 0.009086370468139648,
             "juliak": 0.005815982818603516,
-            "jakubk_2": 0.06546640396118164
+            "jakubk": 0.06546640396118164
           },
           "gradient_rank": 1,
           "step": 5
@@ -223,18 +223,18 @@
           "scores": {
             "julias": 1.0886125564575195,
             "juliak": 1.5651131868362427,
-            "jakubk_2": 2.71321964263916
+            "jakubk": 2.71321964263916
           },
           "improvements": {
             "julias": 0.224107563495636,
             "juliak": 0.2712531089782715,
-            "jakubk_2": 0.5576598644256592
+            "jakubk": 0.5576598644256592
           },
           "gradient_rank": 1,
           "step": 6
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 210,
           "old_base": "C",
           "new_base": "G",
@@ -244,18 +244,18 @@
           "scores": {
             "julias": 1.1453392505645752,
             "juliak": 1.7855494022369385,
-            "jakubk_2": 3.0886518955230713
+            "jakubk": 3.0886518955230713
           },
           "improvements": {
             "julias": 0.056726694107055664,
             "juliak": 0.2204362154006958,
-            "jakubk_2": 0.37543225288391113
+            "jakubk": 0.37543225288391113
           },
           "gradient_rank": 1,
           "step": 7
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 205,
           "old_base": "A",
           "new_base": "C",
@@ -265,18 +265,18 @@
           "scores": {
             "julias": 1.2691326141357422,
             "juliak": 1.9286495447158813,
-            "jakubk_2": 3.224249839782715
+            "jakubk": 3.224249839782715
           },
           "improvements": {
             "julias": 0.12379336357116699,
             "juliak": 0.14310014247894287,
-            "jakubk_2": 0.13559794425964355
+            "jakubk": 0.13559794425964355
           },
           "gradient_rank": 1,
           "step": 8
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 168,
           "old_base": "A",
           "new_base": "T",
@@ -286,12 +286,12 @@
           "scores": {
             "julias": 1.2923177480697632,
             "juliak": 2.0811774730682373,
-            "jakubk_2": 3.438690662384033
+            "jakubk": 3.438690662384033
           },
           "improvements": {
             "julias": 0.023185133934020996,
             "juliak": 0.15252792835235596,
-            "jakubk_2": 0.21444082260131836
+            "jakubk": 0.21444082260131836
           },
           "gradient_rank": 1,
           "step": 9
@@ -307,12 +307,12 @@
           "scores": {
             "julias": 1.3094537258148193,
             "juliak": 2.092069387435913,
-            "jakubk_2": 3.372633695602417
+            "jakubk": 3.372633695602417
           },
           "improvements": {
             "julias": 0.017135977745056152,
             "juliak": 0.010891914367675781,
-            "jakubk_2": -0.06605696678161621
+            "jakubk": -0.06605696678161621
           },
           "gradient_rank": 1,
           "step": 10
@@ -328,12 +328,12 @@
           "scores": {
             "julias": 1.3694623708724976,
             "juliak": 2.158775568008423,
-            "jakubk_2": 3.5241830348968506
+            "jakubk": 3.5241830348968506
           },
           "improvements": {
             "julias": 0.06000864505767822,
             "juliak": 0.06670618057250977,
-            "jakubk_2": 0.1515493392944336
+            "jakubk": 0.1515493392944336
           },
           "gradient_rank": 2,
           "step": 11
@@ -349,12 +349,12 @@
           "scores": {
             "julias": 1.3759318590164185,
             "juliak": 2.2178573608398438,
-            "jakubk_2": 3.5485639572143555
+            "jakubk": 3.5485639572143555
           },
           "improvements": {
             "julias": 0.0064694881439208984,
             "juliak": 0.0590817928314209,
-            "jakubk_2": 0.024380922317504883
+            "jakubk": 0.024380922317504883
           },
           "gradient_rank": 2,
           "step": 12
@@ -370,12 +370,12 @@
           "scores": {
             "julias": 1.414903998374939,
             "juliak": 2.3309972286224365,
-            "jakubk_2": 3.6184024810791016
+            "jakubk": 3.6184024810791016
           },
           "improvements": {
             "julias": 0.03897213935852051,
             "juliak": 0.11313986778259277,
-            "jakubk_2": 0.0698385238647461
+            "jakubk": 0.0698385238647461
           },
           "gradient_rank": 1,
           "step": 13
@@ -391,12 +391,12 @@
           "scores": {
             "julias": 1.4746085405349731,
             "juliak": 2.3078882694244385,
-            "jakubk_2": 3.7573554515838623
+            "jakubk": 3.7573554515838623
           },
           "improvements": {
             "julias": 0.05970454216003418,
             "juliak": -0.023108959197998047,
-            "jakubk_2": 0.13895297050476074
+            "jakubk": 0.13895297050476074
           },
           "gradient_rank": 1,
           "step": 14
@@ -412,18 +412,18 @@
           "scores": {
             "julias": 1.5037274360656738,
             "juliak": 2.379211664199829,
-            "jakubk_2": 3.8425486087799072
+            "jakubk": 3.8425486087799072
           },
           "improvements": {
             "julias": 0.029118895530700684,
             "juliak": 0.07132339477539062,
-            "jakubk_2": 0.08519315719604492
+            "jakubk": 0.08519315719604492
           },
           "gradient_rank": 1,
           "step": 15
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 203,
           "old_base": "G",
           "new_base": "T",
@@ -433,18 +433,18 @@
           "scores": {
             "julias": 1.5369269847869873,
             "juliak": 2.514430284500122,
-            "jakubk_2": 3.830397844314575
+            "jakubk": 3.830397844314575
           },
           "improvements": {
             "julias": 0.03319954872131348,
             "juliak": 0.13521862030029297,
-            "jakubk_2": -0.012150764465332031
+            "jakubk": -0.012150764465332031
           },
           "gradient_rank": 1,
           "step": 16
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 202,
           "old_base": "G",
           "new_base": "T",
@@ -454,12 +454,12 @@
           "scores": {
             "julias": 1.5751601457595825,
             "juliak": 2.882765054702759,
-            "jakubk_2": 4.085197448730469
+            "jakubk": 4.085197448730469
           },
           "improvements": {
             "julias": 0.038233160972595215,
             "juliak": 0.3683347702026367,
-            "jakubk_2": 0.25479960441589355
+            "jakubk": 0.25479960441589355
           },
           "gradient_rank": 1,
           "step": 17
@@ -475,18 +475,18 @@
           "scores": {
             "julias": 1.6422691345214844,
             "juliak": 2.939554452896118,
-            "jakubk_2": 4.085197448730469
+            "jakubk": 4.085197448730469
           },
           "improvements": {
             "julias": 0.06710898876190186,
             "juliak": 0.056789398193359375,
-            "jakubk_2": 0.0
+            "jakubk": 0.0
           },
           "gradient_rank": 1,
           "step": 18
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 121,
           "old_base": "T",
           "new_base": "G",
@@ -496,18 +496,18 @@
           "scores": {
             "julias": 1.6558386087417603,
             "juliak": 2.9390480518341064,
-            "jakubk_2": 4.2896809577941895
+            "jakubk": 4.2896809577941895
           },
           "improvements": {
             "julias": 0.013569474220275879,
             "juliak": -0.0005064010620117188,
-            "jakubk_2": 0.2044835090637207
+            "jakubk": 0.2044835090637207
           },
           "gradient_rank": 3,
           "step": 19
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 154,
           "old_base": "G",
           "new_base": "T",
@@ -517,18 +517,18 @@
           "scores": {
             "julias": 1.6614824533462524,
             "juliak": 2.9590835571289062,
-            "jakubk_2": 4.363306999206543
+            "jakubk": 4.363306999206543
           },
           "improvements": {
             "julias": 0.0056438446044921875,
             "juliak": 0.020035505294799805,
-            "jakubk_2": 0.07362604141235352
+            "jakubk": 0.07362604141235352
           },
           "gradient_rank": 3,
           "step": 20
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 153,
           "old_base": "A",
           "new_base": "C",
@@ -538,18 +538,18 @@
           "scores": {
             "julias": 1.6648906469345093,
             "juliak": 3.0853271484375,
-            "jakubk_2": 4.470886707305908
+            "jakubk": 4.470886707305908
           },
           "improvements": {
             "julias": 0.003408193588256836,
             "juliak": 0.12624359130859375,
-            "jakubk_2": 0.10757970809936523
+            "jakubk": 0.10757970809936523
           },
           "gradient_rank": 1,
           "step": 21
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 181,
           "old_base": "G",
           "new_base": "A",
@@ -559,18 +559,18 @@
           "scores": {
             "julias": 1.6655081510543823,
             "juliak": 3.200899839401245,
-            "jakubk_2": 4.615375995635986
+            "jakubk": 4.615375995635986
           },
           "improvements": {
             "julias": 0.0006175041198730469,
             "juliak": 0.11557269096374512,
-            "jakubk_2": 0.14448928833007812
+            "jakubk": 0.14448928833007812
           },
           "gradient_rank": 3,
           "step": 22
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 183,
           "old_base": "A",
           "new_base": "G",
@@ -580,18 +580,18 @@
           "scores": {
             "julias": 1.6693421602249146,
             "juliak": 3.1851744651794434,
-            "jakubk_2": 4.6519365310668945
+            "jakubk": 4.6519365310668945
           },
           "improvements": {
             "julias": 0.0038340091705322266,
             "juliak": -0.015725374221801758,
-            "jakubk_2": 0.0365605354309082
+            "jakubk": 0.0365605354309082
           },
           "gradient_rank": 3,
           "step": 23
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 49,
           "old_base": "T",
           "new_base": "C",
@@ -601,12 +601,12 @@
           "scores": {
             "julias": 1.6697618961334229,
             "juliak": 3.214895725250244,
-            "jakubk_2": 4.676960468292236
+            "jakubk": 4.676960468292236
           },
           "improvements": {
             "julias": 0.0004197359085083008,
             "juliak": 0.02972126007080078,
-            "jakubk_2": 0.025023937225341797
+            "jakubk": 0.025023937225341797
           },
           "gradient_rank": 3,
           "step": 24
@@ -622,18 +622,18 @@
           "scores": {
             "julias": 1.6793268918991089,
             "juliak": 3.0905356407165527,
-            "jakubk_2": 4.707509994506836
+            "jakubk": 4.707509994506836
           },
           "improvements": {
             "julias": 0.009564995765686035,
             "juliak": -0.1243600845336914,
-            "jakubk_2": 0.03054952621459961
+            "jakubk": 0.03054952621459961
           },
           "gradient_rank": 2,
           "step": 25
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 54,
           "old_base": "G",
           "new_base": "A",
@@ -643,18 +643,18 @@
           "scores": {
             "julias": 1.709007978439331,
             "juliak": 3.1311252117156982,
-            "jakubk_2": 4.847850322723389
+            "jakubk": 4.847850322723389
           },
           "improvements": {
             "julias": 0.029681086540222168,
             "juliak": 0.04058957099914551,
-            "jakubk_2": 0.14034032821655273
+            "jakubk": 0.14034032821655273
           },
           "gradient_rank": 2,
           "step": 26
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 46,
           "old_base": "T",
           "new_base": "A",
@@ -664,18 +664,18 @@
           "scores": {
             "julias": 1.7107312679290771,
             "juliak": 3.1750099658966064,
-            "jakubk_2": 4.947729110717773
+            "jakubk": 4.947729110717773
           },
           "improvements": {
             "julias": 0.0017232894897460938,
             "juliak": 0.0438847541809082,
-            "jakubk_2": 0.09987878799438477
+            "jakubk": 0.09987878799438477
           },
           "gradient_rank": 1,
           "step": 27
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 50,
           "old_base": "G",
           "new_base": "A",
@@ -685,18 +685,18 @@
           "scores": {
             "julias": 1.7076252698898315,
             "juliak": 3.3447916507720947,
-            "jakubk_2": 5.301723480224609
+            "jakubk": 5.301723480224609
           },
           "improvements": {
             "julias": -0.0031059980392456055,
             "juliak": 0.16978168487548828,
-            "jakubk_2": 0.35399436950683594
+            "jakubk": 0.35399436950683594
           },
           "gradient_rank": 1,
           "step": 28
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 45,
           "old_base": "C",
           "new_base": "T",
@@ -706,12 +706,12 @@
           "scores": {
             "julias": 1.695229172706604,
             "juliak": 3.4507369995117188,
-            "jakubk_2": 5.564187049865723
+            "jakubk": 5.564187049865723
           },
           "improvements": {
             "julias": -0.012396097183227539,
             "juliak": 0.10594534873962402,
-            "jakubk_2": 0.2624635696411133
+            "jakubk": 0.2624635696411133
           },
           "gradient_rank": 1,
           "step": 29
@@ -727,12 +727,12 @@
           "scores": {
             "julias": 1.7166292667388916,
             "juliak": 3.4210433959960938,
-            "jakubk_2": 5.652041912078857
+            "jakubk": 5.652041912078857
           },
           "improvements": {
             "julias": 0.021400094032287598,
             "juliak": -0.029693603515625,
-            "jakubk_2": 0.08785486221313477
+            "jakubk": 0.08785486221313477
           },
           "gradient_rank": 2,
           "step": 30
@@ -748,18 +748,18 @@
           "scores": {
             "julias": 1.7431814670562744,
             "juliak": 3.4188272953033447,
-            "jakubk_2": 5.674044132232666
+            "jakubk": 5.674044132232666
           },
           "improvements": {
             "julias": 0.026552200317382812,
             "juliak": -0.0022161006927490234,
-            "jakubk_2": 0.022002220153808594
+            "jakubk": 0.022002220153808594
           },
           "gradient_rank": 1,
           "step": 31
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 151,
           "old_base": "G",
           "new_base": "A",
@@ -769,18 +769,18 @@
           "scores": {
             "julias": 1.6870813369750977,
             "juliak": 3.4577317237854004,
-            "jakubk_2": 5.750824928283691
+            "jakubk": 5.750824928283691
           },
           "improvements": {
             "julias": -0.05610013008117676,
             "juliak": 0.038904428482055664,
-            "jakubk_2": 0.07678079605102539
+            "jakubk": 0.07678079605102539
           },
           "gradient_rank": 2,
           "step": 32
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 42,
           "old_base": "T",
           "new_base": "A",
@@ -790,18 +790,18 @@
           "scores": {
             "julias": 1.6753063201904297,
             "juliak": 3.4996726512908936,
-            "jakubk_2": 5.845078945159912
+            "jakubk": 5.845078945159912
           },
           "improvements": {
             "julias": -0.011775016784667969,
             "juliak": 0.041940927505493164,
-            "jakubk_2": 0.0942540168762207
+            "jakubk": 0.0942540168762207
           },
           "gradient_rank": 2,
           "step": 33
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 43,
           "old_base": "A",
           "new_base": "G",
@@ -811,18 +811,18 @@
           "scores": {
             "julias": 1.7159650325775146,
             "juliak": 3.665635824203491,
-            "jakubk_2": 6.1118574142456055
+            "jakubk": 6.1118574142456055
           },
           "improvements": {
             "julias": 0.04065871238708496,
             "juliak": 0.16596317291259766,
-            "jakubk_2": 0.26677846908569336
+            "jakubk": 0.26677846908569336
           },
           "gradient_rank": 2,
           "step": 34
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 114,
           "old_base": "A",
           "new_base": "G",
@@ -832,12 +832,12 @@
           "scores": {
             "julias": 1.720628023147583,
             "juliak": 3.6156225204467773,
-            "jakubk_2": 6.123749256134033
+            "jakubk": 6.123749256134033
           },
           "improvements": {
             "julias": 0.004662990570068359,
             "juliak": -0.05001330375671387,
-            "jakubk_2": 0.011891841888427734
+            "jakubk": 0.011891841888427734
           },
           "gradient_rank": 3,
           "step": 35
@@ -853,12 +853,12 @@
           "scores": {
             "julias": 1.757766842842102,
             "juliak": 3.7116847038269043,
-            "jakubk_2": 6.15444803237915
+            "jakubk": 6.15444803237915
           },
           "improvements": {
             "julias": 0.03713881969451904,
             "juliak": 0.09606218338012695,
-            "jakubk_2": 0.030698776245117188
+            "jakubk": 0.030698776245117188
           },
           "gradient_rank": 1,
           "step": 36
@@ -874,12 +874,12 @@
           "scores": {
             "julias": 1.793595552444458,
             "juliak": 3.7822000980377197,
-            "jakubk_2": 6.201176643371582
+            "jakubk": 6.201176643371582
           },
           "improvements": {
             "julias": 0.03582870960235596,
             "juliak": 0.07051539421081543,
-            "jakubk_2": 0.04672861099243164
+            "jakubk": 0.04672861099243164
           },
           "gradient_rank": 1,
           "step": 37
@@ -895,12 +895,12 @@
           "scores": {
             "julias": 1.8545520305633545,
             "juliak": 3.8101627826690674,
-            "jakubk_2": 6.019237995147705
+            "jakubk": 6.019237995147705
           },
           "improvements": {
             "julias": 0.060956478118896484,
             "juliak": 0.027962684631347656,
-            "jakubk_2": -0.18193864822387695
+            "jakubk": -0.18193864822387695
           },
           "gradient_rank": 2,
           "step": 38
@@ -916,12 +916,12 @@
           "scores": {
             "julias": 1.85693359375,
             "juliak": 3.835888624191284,
-            "jakubk_2": 6.017408847808838
+            "jakubk": 6.017408847808838
           },
           "improvements": {
             "julias": 0.002381563186645508,
             "juliak": 0.025725841522216797,
-            "jakubk_2": -0.0018291473388671875
+            "jakubk": -0.0018291473388671875
           },
           "gradient_rank": 3,
           "step": 39
@@ -937,12 +937,12 @@
           "scores": {
             "julias": 1.859971046447754,
             "juliak": 3.7860798835754395,
-            "jakubk_2": 6.134394645690918
+            "jakubk": 6.134394645690918
           },
           "improvements": {
             "julias": 0.0030374526977539062,
             "juliak": -0.04980874061584473,
-            "jakubk_2": 0.11698579788208008
+            "jakubk": 0.11698579788208008
           },
           "gradient_rank": 1,
           "step": 40
@@ -977,42 +977,42 @@
       "voting_model_names": [
         "julias",
         "juliak",
-        "jakubk_2"
+        "jakubk"
       ],
       "scoring_model_names": [
         "julias",
         "juliak",
-        "jakubk_2"
+        "jakubk"
       ],
       "initial_scores": {
         "julias": 0.21965831518173218,
         "juliak": 0.3927309215068817,
-        "jakubk_2": 0.40238893032073975
+        "jakubk": 0.40238893032073975
       },
       "final_scores": {
         "julias": 1.2180722951889038,
         "juliak": 1.8958545923233032,
-        "jakubk_2": 2.6609344482421875
+        "jakubk": 2.6609344482421875
       },
       "improvements": {
         "julias": 0.9984139800071716,
         "juliak": 1.5031236708164215,
-        "jakubk_2": 2.2585455179214478
+        "jakubk": 2.2585455179214478
       },
       "voting_initial_scores": {
         "julias": 0.21965831518173218,
         "juliak": 0.3927309215068817,
-        "jakubk_2": 0.40238893032073975
+        "jakubk": 0.40238893032073975
       },
       "voting_final_scores": {
         "julias": 1.2180722951889038,
         "juliak": 1.8958545923233032,
-        "jakubk_2": 2.6609344482421875
+        "jakubk": 2.6609344482421875
       },
       "voting_improvements": {
         "julias": 0.9984139800071716,
         "juliak": 1.5031236708164215,
-        "jakubk_2": 2.2585455179214478
+        "jakubk": 2.2585455179214478
       },
       "mean_initial_score": 0.33825938900311786,
       "mean_final_score": 1.924953778584798,
@@ -1022,7 +1022,7 @@
       "mean_voting_improvement": 1.5866943895816803,
       "history": [
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 94,
           "old_base": "A",
           "new_base": "G",
@@ -1032,12 +1032,12 @@
           "scores": {
             "julias": 0.331673800945282,
             "juliak": 0.6510264873504639,
-            "jakubk_2": 0.6040714979171753
+            "jakubk": 0.6040714979171753
           },
           "improvements": {
             "julias": 0.1120154857635498,
             "juliak": 0.25829556584358215,
-            "jakubk_2": 0.20168256759643555
+            "jakubk": 0.20168256759643555
           },
           "gradient_rank": 1,
           "step": 1
@@ -1053,18 +1053,18 @@
           "scores": {
             "julias": 0.5060968995094299,
             "juliak": 0.7711225748062134,
-            "jakubk_2": 0.7332465052604675
+            "jakubk": 0.7332465052604675
           },
           "improvements": {
             "julias": 0.17442309856414795,
             "juliak": 0.12009608745574951,
-            "jakubk_2": 0.12917500734329224
+            "jakubk": 0.12917500734329224
           },
           "gradient_rank": 1,
           "step": 2
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 30,
           "old_base": "A",
           "new_base": "G",
@@ -1074,18 +1074,18 @@
           "scores": {
             "julias": 0.5308522582054138,
             "juliak": 0.8496476411819458,
-            "jakubk_2": 0.9588420987129211
+            "jakubk": 0.9588420987129211
           },
           "improvements": {
             "julias": 0.024755358695983887,
             "juliak": 0.07852506637573242,
-            "jakubk_2": 0.2255955934524536
+            "jakubk": 0.2255955934524536
           },
           "gradient_rank": 1,
           "step": 3
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 66,
           "old_base": "T",
           "new_base": "C",
@@ -1095,12 +1095,12 @@
           "scores": {
             "julias": 0.665361225605011,
             "juliak": 0.97286057472229,
-            "jakubk_2": 1.1479740142822266
+            "jakubk": 1.1479740142822266
           },
           "improvements": {
             "julias": 0.13450896739959717,
             "juliak": 0.12321293354034424,
-            "jakubk_2": 0.18913191556930542
+            "jakubk": 0.18913191556930542
           },
           "gradient_rank": 1,
           "step": 4
@@ -1116,18 +1116,18 @@
           "scores": {
             "julias": 0.6791438460350037,
             "juliak": 1.0969394445419312,
-            "jakubk_2": 1.2401014566421509
+            "jakubk": 1.2401014566421509
           },
           "improvements": {
             "julias": 0.013782620429992676,
             "juliak": 0.12407886981964111,
-            "jakubk_2": 0.09212744235992432
+            "jakubk": 0.09212744235992432
           },
           "gradient_rank": 1,
           "step": 5
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 146,
           "old_base": "A",
           "new_base": "C",
@@ -1137,18 +1137,18 @@
           "scores": {
             "julias": 0.7280957102775574,
             "juliak": 1.2106610536575317,
-            "jakubk_2": 1.5318052768707275
+            "jakubk": 1.5318052768707275
           },
           "improvements": {
             "julias": 0.04895186424255371,
             "juliak": 0.11372160911560059,
-            "jakubk_2": 0.29170382022857666
+            "jakubk": 0.29170382022857666
           },
           "gradient_rank": 1,
           "step": 6
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 137,
           "old_base": "C",
           "new_base": "A",
@@ -1158,12 +1158,12 @@
           "scores": {
             "julias": 0.8904423117637634,
             "juliak": 1.406028389930725,
-            "jakubk_2": 1.958519458770752
+            "jakubk": 1.958519458770752
           },
           "improvements": {
             "julias": 0.16234660148620605,
             "juliak": 0.19536733627319336,
-            "jakubk_2": 0.4267141819000244
+            "jakubk": 0.4267141819000244
           },
           "gradient_rank": 1,
           "step": 7
@@ -1179,12 +1179,12 @@
           "scores": {
             "julias": 0.9639279246330261,
             "juliak": 1.5221813917160034,
-            "jakubk_2": 2.0678889751434326
+            "jakubk": 2.0678889751434326
           },
           "improvements": {
             "julias": 0.0734856128692627,
             "juliak": 0.11615300178527832,
-            "jakubk_2": 0.10936951637268066
+            "jakubk": 0.10936951637268066
           },
           "gradient_rank": 1,
           "step": 8
@@ -1200,18 +1200,18 @@
           "scores": {
             "julias": 1.144012689590454,
             "juliak": 1.6211563348770142,
-            "jakubk_2": 2.2571351528167725
+            "jakubk": 2.2571351528167725
           },
           "improvements": {
             "julias": 0.18008476495742798,
             "juliak": 0.09897494316101074,
-            "jakubk_2": 0.18924617767333984
+            "jakubk": 0.18924617767333984
           },
           "gradient_rank": 1,
           "step": 9
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 42,
           "old_base": "A",
           "new_base": "C",
@@ -1221,18 +1221,18 @@
           "scores": {
             "julias": 1.161008358001709,
             "juliak": 1.711100697517395,
-            "jakubk_2": 2.408053159713745
+            "jakubk": 2.408053159713745
           },
           "improvements": {
             "julias": 0.016995668411254883,
             "juliak": 0.08994436264038086,
-            "jakubk_2": 0.15091800689697266
+            "jakubk": 0.15091800689697266
           },
           "gradient_rank": 1,
           "step": 10
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 45,
           "old_base": "A",
           "new_base": "G",
@@ -1242,18 +1242,18 @@
           "scores": {
             "julias": 1.1653398275375366,
             "juliak": 1.711689829826355,
-            "jakubk_2": 2.4621574878692627
+            "jakubk": 2.4621574878692627
           },
           "improvements": {
             "julias": 0.004331469535827637,
             "juliak": 0.0005891323089599609,
-            "jakubk_2": 0.05410432815551758
+            "jakubk": 0.05410432815551758
           },
           "gradient_rank": 1,
           "step": 11
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 166,
           "old_base": "T",
           "new_base": "C",
@@ -1263,18 +1263,18 @@
           "scores": {
             "julias": 1.1643340587615967,
             "juliak": 1.746268630027771,
-            "jakubk_2": 2.5934829711914062
+            "jakubk": 2.5934829711914062
           },
           "improvements": {
             "julias": -0.0010057687759399414,
             "juliak": 0.034578800201416016,
-            "jakubk_2": 0.13132548332214355
+            "jakubk": 0.13132548332214355
           },
           "gradient_rank": 1,
           "step": 12
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 180,
           "old_base": "C",
           "new_base": "G",
@@ -1284,18 +1284,18 @@
           "scores": {
             "julias": 1.1856212615966797,
             "juliak": 1.8518296480178833,
-            "jakubk_2": 2.677089214324951
+            "jakubk": 2.677089214324951
           },
           "improvements": {
             "julias": 0.021287202835083008,
             "juliak": 0.1055610179901123,
-            "jakubk_2": 0.08360624313354492
+            "jakubk": 0.08360624313354492
           },
           "gradient_rank": 1,
           "step": 13
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 165,
           "old_base": "A",
           "new_base": "C",
@@ -1305,18 +1305,18 @@
           "scores": {
             "julias": 1.1975114345550537,
             "juliak": 1.8476157188415527,
-            "jakubk_2": 2.7383809089660645
+            "jakubk": 2.7383809089660645
           },
           "improvements": {
             "julias": 0.011890172958374023,
             "juliak": -0.004213929176330566,
-            "jakubk_2": 0.06129169464111328
+            "jakubk": 0.06129169464111328
           },
           "gradient_rank": 1,
           "step": 14
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 117,
           "old_base": "G",
           "new_base": "T",
@@ -1326,12 +1326,12 @@
           "scores": {
             "julias": 1.1956381797790527,
             "juliak": 1.8496326208114624,
-            "jakubk_2": 2.8007142543792725
+            "jakubk": 2.8007142543792725
           },
           "improvements": {
             "julias": -0.0018732547760009766,
             "juliak": 0.002016901969909668,
-            "jakubk_2": 0.06233334541320801
+            "jakubk": 0.06233334541320801
           },
           "gradient_rank": 1,
           "step": 15
@@ -1347,12 +1347,12 @@
           "scores": {
             "julias": 1.2180722951889038,
             "juliak": 1.8958545923233032,
-            "jakubk_2": 2.6609344482421875
+            "jakubk": 2.6609344482421875
           },
           "improvements": {
             "julias": 0.022434115409851074,
             "juliak": 0.04622197151184082,
-            "jakubk_2": -0.13977980613708496
+            "jakubk": -0.13977980613708496
           },
           "gradient_rank": 1,
           "step": 16
@@ -1391,42 +1391,42 @@
       "voting_model_names": [
         "julias",
         "juliak",
-        "jakubk_2"
+        "jakubk"
       ],
       "scoring_model_names": [
         "julias",
         "juliak",
-        "jakubk_2"
+        "jakubk"
       ],
       "initial_scores": {
         "julias": -0.04663519561290741,
         "juliak": -0.10961982607841492,
-        "jakubk_2": 0.5393216013908386
+        "jakubk": 0.5393216013908386
       },
       "final_scores": {
         "julias": 1.00313138961792,
         "juliak": 1.7419542074203491,
-        "jakubk_2": 1.9850802421569824
+        "jakubk": 1.9850802421569824
       },
       "improvements": {
         "julias": 1.0497665852308273,
         "juliak": 1.851574033498764,
-        "jakubk_2": 1.4457586407661438
+        "jakubk": 1.4457586407661438
       },
       "voting_initial_scores": {
         "julias": -0.04663519561290741,
         "juliak": -0.10961982607841492,
-        "jakubk_2": 0.5393216013908386
+        "jakubk": 0.5393216013908386
       },
       "voting_final_scores": {
         "julias": 1.00313138961792,
         "juliak": 1.7419542074203491,
-        "jakubk_2": 1.9850802421569824
+        "jakubk": 1.9850802421569824
       },
       "voting_improvements": {
         "julias": 1.0497665852308273,
         "juliak": 1.851574033498764,
-        "jakubk_2": 1.4457586407661438
+        "jakubk": 1.4457586407661438
       },
       "mean_initial_score": 0.12768885989983877,
       "mean_final_score": 1.5767219463984172,
@@ -1446,18 +1446,18 @@
           "scores": {
             "julias": 0.1839987337589264,
             "juliak": 0.22295033931732178,
-            "jakubk_2": 0.7526508569717407
+            "jakubk": 0.7526508569717407
           },
           "improvements": {
             "julias": 0.2306339293718338,
             "juliak": 0.3325701653957367,
-            "jakubk_2": 0.2133292555809021
+            "jakubk": 0.2133292555809021
           },
           "gradient_rank": 1,
           "step": 1
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 135,
           "old_base": "T",
           "new_base": "G",
@@ -1467,18 +1467,18 @@
           "scores": {
             "julias": 0.21407747268676758,
             "juliak": 0.26109179854393005,
-            "jakubk_2": 1.0455951690673828
+            "jakubk": 1.0455951690673828
           },
           "improvements": {
             "julias": 0.030078738927841187,
             "juliak": 0.038141459226608276,
-            "jakubk_2": 0.2929443120956421
+            "jakubk": 0.2929443120956421
           },
           "gradient_rank": 1,
           "step": 2
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 93,
           "old_base": "C",
           "new_base": "A",
@@ -1488,18 +1488,18 @@
           "scores": {
             "julias": 0.3287435472011566,
             "juliak": 0.3186580538749695,
-            "jakubk_2": 1.1696529388427734
+            "jakubk": 1.1696529388427734
           },
           "improvements": {
             "julias": 0.11466607451438904,
             "juliak": 0.05756625533103943,
-            "jakubk_2": 0.12405776977539062
+            "jakubk": 0.12405776977539062
           },
           "gradient_rank": 1,
           "step": 3
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 129,
           "old_base": "C",
           "new_base": "G",
@@ -1509,12 +1509,12 @@
           "scores": {
             "julias": 0.3168185353279114,
             "juliak": 0.5183916687965393,
-            "jakubk_2": 1.3474377393722534
+            "jakubk": 1.3474377393722534
           },
           "improvements": {
             "julias": -0.01192501187324524,
             "juliak": 0.19973361492156982,
-            "jakubk_2": 0.17778480052947998
+            "jakubk": 0.17778480052947998
           },
           "gradient_rank": 1,
           "step": 4
@@ -1530,12 +1530,12 @@
           "scores": {
             "julias": 0.545802116394043,
             "juliak": 0.6828004717826843,
-            "jakubk_2": 1.4275703430175781
+            "jakubk": 1.4275703430175781
           },
           "improvements": {
             "julias": 0.2289835810661316,
             "juliak": 0.16440880298614502,
-            "jakubk_2": 0.08013260364532471
+            "jakubk": 0.08013260364532471
           },
           "gradient_rank": 1,
           "step": 5
@@ -1551,12 +1551,12 @@
           "scores": {
             "julias": 0.6546705961227417,
             "juliak": 0.7610903382301331,
-            "jakubk_2": 1.3649322986602783
+            "jakubk": 1.3649322986602783
           },
           "improvements": {
             "julias": 0.10886847972869873,
             "juliak": 0.07828986644744873,
-            "jakubk_2": -0.0626380443572998
+            "jakubk": -0.0626380443572998
           },
           "gradient_rank": 1,
           "step": 6
@@ -1572,12 +1572,12 @@
           "scores": {
             "julias": 0.6682577133178711,
             "juliak": 0.838058590888977,
-            "jakubk_2": 1.377881646156311
+            "jakubk": 1.377881646156311
           },
           "improvements": {
             "julias": 0.013587117195129395,
             "juliak": 0.076968252658844,
-            "jakubk_2": 0.012949347496032715
+            "jakubk": 0.012949347496032715
           },
           "gradient_rank": 1,
           "step": 7
@@ -1593,12 +1593,12 @@
           "scores": {
             "julias": 0.6852360367774963,
             "juliak": 0.8390989303588867,
-            "jakubk_2": 1.413126826286316
+            "jakubk": 1.413126826286316
           },
           "improvements": {
             "julias": 0.016978323459625244,
             "juliak": 0.001040339469909668,
-            "jakubk_2": 0.03524518013000488
+            "jakubk": 0.03524518013000488
           },
           "gradient_rank": 1,
           "step": 8
@@ -1614,12 +1614,12 @@
           "scores": {
             "julias": 0.7861148118972778,
             "juliak": 0.9175687432289124,
-            "jakubk_2": 1.342005968093872
+            "jakubk": 1.342005968093872
           },
           "improvements": {
             "julias": 0.1008787751197815,
             "juliak": 0.07846981287002563,
-            "jakubk_2": -0.07112085819244385
+            "jakubk": -0.07112085819244385
           },
           "gradient_rank": 1,
           "step": 9
@@ -1635,12 +1635,12 @@
           "scores": {
             "julias": 0.8015233874320984,
             "juliak": 0.8692496418952942,
-            "jakubk_2": 1.3572065830230713
+            "jakubk": 1.3572065830230713
           },
           "improvements": {
             "julias": 0.015408575534820557,
             "juliak": -0.048319101333618164,
-            "jakubk_2": 0.015200614929199219
+            "jakubk": 0.015200614929199219
           },
           "gradient_rank": 1,
           "step": 10
@@ -1656,12 +1656,12 @@
           "scores": {
             "julias": 0.7780218720436096,
             "juliak": 0.8819817304611206,
-            "jakubk_2": 1.4812008142471313
+            "jakubk": 1.4812008142471313
           },
           "improvements": {
             "julias": -0.02350151538848877,
             "juliak": 0.012732088565826416,
-            "jakubk_2": 0.12399423122406006
+            "jakubk": 0.12399423122406006
           },
           "gradient_rank": 1,
           "step": 11
@@ -1677,12 +1677,12 @@
           "scores": {
             "julias": 0.7928186058998108,
             "juliak": 0.9033374190330505,
-            "jakubk_2": 1.5110440254211426
+            "jakubk": 1.5110440254211426
           },
           "improvements": {
             "julias": 0.014796733856201172,
             "juliak": 0.02135568857192993,
-            "jakubk_2": 0.02984321117401123
+            "jakubk": 0.02984321117401123
           },
           "gradient_rank": 1,
           "step": 12
@@ -1698,12 +1698,12 @@
           "scores": {
             "julias": 0.8352999091148376,
             "juliak": 0.906570553779602,
-            "jakubk_2": 1.5566619634628296
+            "jakubk": 1.5566619634628296
           },
           "improvements": {
             "julias": 0.042481303215026855,
             "juliak": 0.0032331347465515137,
-            "jakubk_2": 0.04561793804168701
+            "jakubk": 0.04561793804168701
           },
           "gradient_rank": 1,
           "step": 13
@@ -1719,12 +1719,12 @@
           "scores": {
             "julias": 0.9467282295227051,
             "juliak": 0.9958504438400269,
-            "jakubk_2": 1.6879433393478394
+            "jakubk": 1.6879433393478394
           },
           "improvements": {
             "julias": 0.11142832040786743,
             "juliak": 0.0892798900604248,
-            "jakubk_2": 0.13128137588500977
+            "jakubk": 0.13128137588500977
           },
           "gradient_rank": 1,
           "step": 14
@@ -1740,12 +1740,12 @@
           "scores": {
             "julias": 0.9895809292793274,
             "juliak": 1.0311368703842163,
-            "jakubk_2": 1.638069987297058
+            "jakubk": 1.638069987297058
           },
           "improvements": {
             "julias": 0.042852699756622314,
             "juliak": 0.03528642654418945,
-            "jakubk_2": -0.04987335205078125
+            "jakubk": -0.04987335205078125
           },
           "gradient_rank": 1,
           "step": 15
@@ -1761,12 +1761,12 @@
           "scores": {
             "julias": 0.9982101321220398,
             "juliak": 1.2524069547653198,
-            "jakubk_2": 1.7145452499389648
+            "jakubk": 1.7145452499389648
           },
           "improvements": {
             "julias": 0.008629202842712402,
             "juliak": 0.22127008438110352,
-            "jakubk_2": 0.07647526264190674
+            "jakubk": 0.07647526264190674
           },
           "gradient_rank": 2,
           "step": 16
@@ -1782,18 +1782,18 @@
           "scores": {
             "julias": 1.1234660148620605,
             "juliak": 1.5487433671951294,
-            "jakubk_2": 1.8611667156219482
+            "jakubk": 1.8611667156219482
           },
           "improvements": {
             "julias": 0.12525588274002075,
             "juliak": 0.29633641242980957,
-            "jakubk_2": 0.1466214656829834
+            "jakubk": 0.1466214656829834
           },
           "gradient_rank": 1,
           "step": 17
         },
         {
-          "source_model": "jakubk_2",
+          "source_model": "jakubk",
           "position": 74,
           "old_base": "C",
           "new_base": "T",
@@ -1803,12 +1803,12 @@
           "scores": {
             "julias": 1.08125901222229,
             "juliak": 1.568785309791565,
-            "jakubk_2": 1.981802225112915
+            "jakubk": 1.981802225112915
           },
           "improvements": {
             "julias": -0.04220700263977051,
             "juliak": 0.020041942596435547,
-            "jakubk_2": 0.1206355094909668
+            "jakubk": 0.1206355094909668
           },
           "gradient_rank": 2,
           "step": 18
@@ -1824,12 +1824,12 @@
           "scores": {
             "julias": 1.0970516204833984,
             "juliak": 1.6210888624191284,
-            "jakubk_2": 1.941044569015503
+            "jakubk": 1.941044569015503
           },
           "improvements": {
             "julias": 0.0157926082611084,
             "juliak": 0.05230355262756348,
-            "jakubk_2": -0.04075765609741211
+            "jakubk": -0.04075765609741211
           },
           "gradient_rank": 1,
           "step": 19
@@ -1845,12 +1845,12 @@
           "scores": {
             "julias": 1.00313138961792,
             "juliak": 1.7419542074203491,
-            "jakubk_2": 1.9850802421569824
+            "jakubk": 1.9850802421569824
           },
           "improvements": {
             "julias": -0.09392023086547852,
             "juliak": 0.1208653450012207,
-            "jakubk_2": 0.04403567314147949
+            "jakubk": 0.04403567314147949
           },
           "gradient_rank": 2,
           "step": 20

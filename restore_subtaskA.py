@@ -6,7 +6,7 @@ from pathlib import Path
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from jakubk_2.jk_inference import (
+from jakubk.jk_inference import (
     BASE_TO_CHANNEL as JK2_BASE_TO_CHANNEL,
     DeepSTARRRegulatoryModel,
     fit_sequence_length as jk2_fit_sequence_length,
@@ -142,9 +142,9 @@ class ModelScorer:
         return ranked
 
 
-class JakubK2Scorer(ModelScorer):
+class JakubKScorer(ModelScorer):
     def __init__(self, model, expected_length, y_mean, y_std, device):
-        super().__init__("jakubk_2", model, JK2_BASE_TO_CHANNEL, None, device)
+        super().__init__("jakubk", model, JK2_BASE_TO_CHANNEL, None, device)
         self.expected_length = expected_length
         self.y_mean = y_mean
         self.y_std = y_std
@@ -214,7 +214,7 @@ def load_models(device):
     __main__.DeepSTARR_MultiTask = DeepSTARR_MultiTask
     juliak = torch.load("juliak/best_model.pth", map_location=device, weights_only=False)
 
-    jakubk_ckpt = torch.load("jakubk_2/rna_dna_ratio_model.pt", map_location=device, weights_only=False)
+    jakubk_ckpt = torch.load("jakubk/rna_dna_ratio_model.pt", map_location=device, weights_only=False)
     jakubk_length = int(jakubk_ckpt["sequence_length"])
     jakubk = DeepSTARRRegulatoryModel(jakubk_length).to(device)
     jakubk.load_state_dict(jakubk_ckpt["model_state_dict"])
@@ -222,7 +222,7 @@ def load_models(device):
     return [
         ModelScorer("julias", julias, {"A": 0, "T": 1, "C": 2, "G": 3}, lambda out: out[1], device),
         ModelScorer("juliak", juliak, {"A": 0, "C": 1, "G": 2, "T": 3}, lambda out: out[1].squeeze(), device),
-        JakubK2Scorer(jakubk, jakubk_length, float(jakubk_ckpt["y_mean"]), float(jakubk_ckpt["y_std"]), device),
+        JakubKScorer(jakubk, jakubk_length, float(jakubk_ckpt["y_mean"]), float(jakubk_ckpt["y_std"]), device),
     ]
 
 
