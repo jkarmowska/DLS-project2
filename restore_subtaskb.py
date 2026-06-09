@@ -1,5 +1,6 @@
 import argparse
 import json
+import os
 from pathlib import Path
 
 import torch
@@ -133,6 +134,7 @@ def parse_args():
         dest="exclude_jakubk",
         help="Do not use jakubk model for mutation voting.",
     )
+    parser.add_argument("--saliency-dir", default="saliency_outputs", help="Directory to save raw saliency TSV data.")
     return parser.parse_args()
 
 
@@ -150,6 +152,23 @@ def main():
         optimize_sequence(header, sequence, args.mutation_cap, voting_models, scoring_models)
         for header, sequence in read_fasta(FASTA_PATH)
     ]
+    
+    if args.saliency_dir is not None:
+        os.makedirs(args.saliency_dir, exist_ok=True)
+        for res in results:
+            header = res.get("id")
+            initial_seq = res.get("initial_sequence")
+            final_seq = res.get("final_sequence")
+            safe_header = header.replace("/", "_")
+            for model in scoring_models:
+                for label, seq in (("initial", initial_seq), ("final", final_seq)):
+                    sal = model.saliency(seq)
+                    tsv_path = os.path.join(args.saliency_dir, f"{safe_header}_{model.name}_{label}_saliency.tsv")
+                    with open(tsv_path, "w") as fh:
+                        fh.write("position\tsaliency\n")
+                        for i, v in enumerate(sal, start=1):
+                            fh.write(f"{i}\t{v:.6f}\n")
+                            
     save_results(results)
     print(f"saved {RESULTS_TSV}")
     print(f"saved {METRICS_JSON}")

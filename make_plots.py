@@ -5,16 +5,19 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 
+# Paths to the summary metrics JSON files
+METRICS_A_JSON = Path("subtaskA_restored_metrics.json")
+METRICS_B_JSON = Path("subtaskB_restored_metrics.json")
 
-METRICS_JSON = Path("subtaskA_restored_metrics.json")
-SALIENCY_DIR = "saliency_outputs"  # Folder where previous file saved the .tsv files
-OUTPUT_PLOTS_DIR = "plots_output" # Folder for PNG images
-BAR_VALUES = [2.5, 2.7, 1.1] # Approximate original values ​​from the task
+SALIENCY_DIR = "saliency_outputs"  # Directory containing .tsv files from both subtasks
+OUTPUT_PLOTS_DIR = "plots_output"  # Directory where final PNG plots will be saved
+BAR_VALUES_A = [2.5, 2.7, 1.1]     # Approximate original reference values for Subtask A
 
-def plot_bar_chart(summary_data):
+def plot_bar_chart_subtask_a(summary_data):
+    """Generates a bar chart comparing scores for Subtask A."""
     sequences = summary_data["sequences"]
     sequence_labels = ["Seq 1", "Seq 2", "Seq 3"]
-    original_values = BAR_VALUES
+    original_values = BAR_VALUES_A
     corrupted_values = [seq["mean_initial_score"] for seq in sequences]
     repaired_values = [seq["mean_final_score"] for seq in sequences]
 
@@ -36,9 +39,11 @@ def plot_bar_chart(summary_data):
     out_path = Path(OUTPUT_PLOTS_DIR) / "subtaskA_comparison_bar_plot.png"
     plt.savefig(out_path, dpi=150)
     plt.close()
-    print(f"Saved bar plot to: {out_path}")
+    print(f"Saved Subtask A bar plot to: {out_path}")
 
-def plot_saliency_heatmaps(summary_data):
+
+def plot_saliency_heatmaps(summary_data, subtask_label):
+    """Generates Signed Saliency heatmaps with an optimized layout for axes and colorbar."""
     sequences = summary_data["sequences"]
     model_names = summary_data["model_names"]
     
@@ -50,13 +55,13 @@ def plot_saliency_heatmaps(summary_data):
             for label in ("initial", "final"):
                 tsv_path = Path(SALIENCY_DIR) / f"{safe_header}_{model_name}_{label}_saliency.tsv"
                 
+                # Skip silently if the .tsv file does not exist for a given model/state
                 if not tsv_path.exists():
-                    print(f"Warning: Data file not found {tsv_path}")
                     continue
                 
                 positions, saliency_vals = [], []
                 with open(tsv_path, "r") as fh:
-                    next(fh)
+                    next(fh)  # Skip the TSV header
                     for line in fh:
                         pos, val = line.strip().split("\t")
                         positions.append(int(pos))
@@ -64,10 +69,11 @@ def plot_saliency_heatmaps(summary_data):
                 
                 sal = np.array(saliency_vals)
 
+                # Initialize the plot with a balanced aspect ratio setup
                 fig, ax = plt.subplots(figsize=(max(6, len(sal)/50), 2.5)) 
-                
                 im = ax.imshow(sal[np.newaxis, :], aspect="auto", cmap="seismic", vmin=-1, vmax=1)
                 
+                # Create a dedicated axis for the vertical colorbar on the right side
                 divider = make_axes_locatable(ax)
                 cax = divider.append_axes("right", size="5%", pad=0.15)
                 
@@ -76,27 +82,39 @@ def plot_saliency_heatmaps(summary_data):
                 
                 ax.set_yticks([])
                 ax.set_xlabel("nucleotide position", fontsize=10)
-                ax.set_title(f"{header} | {model_name} ({label})", fontweight="bold")
+                ax.set_title(f"Subtask {subtask_label}: {header} | {model_name} ({label})", fontweight="bold", fontsize=11)
                 
-                png_path = Path(OUTPUT_PLOTS_DIR) / f"{safe_header}_{model_name}_{label}_heatmap.png"
+                png_path = Path(OUTPUT_PLOTS_DIR) / f"subtask{subtask_label}_{safe_header}_{model_name}_{label}_heatmap.png"
                 plt.savefig(png_path, dpi=150, bbox_inches="tight") 
                 plt.close(fig)
-    print("All saliency maps generated successfully.")
+    print(f"Saliency maps for Subtask {subtask_label} generated successfully.")
+
 
 def main():
-    if not METRICS_JSON.exists():
-        print(f"Error: {METRICS_JSON} does not exist. Run optimize.py first!")
-        return
-        
     os.makedirs(OUTPUT_PLOTS_DIR, exist_ok=True)
     
-    with open(METRICS_JSON, "r") as fh:
-        summary_data = json.load(fh)
-        
-    print("Generating presentation charts...")
-    plot_bar_chart(summary_data)
-    plot_saliency_heatmaps(summary_data)
-    print(f"Done! Check the '{OUTPUT_PLOTS_DIR}' folder for PNG files.")
+    # 1. PROCESS SUBTASK A
+    if METRICS_A_JSON.exists():
+        print("--- Processing Subtask A (Bar Plot & Saliency) ---")
+        with open(METRICS_A_JSON, "r") as fh:
+            data_a = json.load(fh)
+        plot_bar_chart_subtask_a(data_a)
+        plot_saliency_heatmaps(data_a, subtask_label="A")
+    else:
+        print(f"Info: {METRICS_A_JSON} not found, skipping Subtask A.")
+
+    print("")  # Console line break
+
+    # 2. PROCESS SUBTASK B
+    if METRICS_B_JSON.exists():
+        print("--- Processing Subtask B (Saliency Only) ---")
+        with open(METRICS_B_JSON, "r") as fh:
+            data_b = json.load(fh)
+        plot_saliency_heatmaps(data_b, subtask_label="B")
+    else:
+        print(f"Info: {METRICS_B_JSON} not found, skipping Subtask B.")
+
+    print(f"\nDone! All available plots saved to the '{OUTPUT_PLOTS_DIR}' folder.")
 
 if __name__ == "__main__":
     main()
