@@ -9,7 +9,7 @@ from mpl_toolkits.axes_grid1 import make_axes_locatable
 METRICS_A_JSON = Path("subtaskA_restored_metrics.json")
 METRICS_B_JSON = Path("subtaskB_restored_metrics.json")
 
-SALIENCY_DIR = "saliency_outputs"  # Directory containing .tsv files from both subtasks
+SALIENCY_DIR = "saliency_maps"  # Directory containing .tsv files from both subtasks
 OUTPUT_PLOTS_DIR = "plots_output"  # Directory where final PNG plots will be saved
 BAR_VALUES_A = [2.5, 2.7, 1.1]     # Approximate original reference values for Subtask A
 
